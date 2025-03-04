@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.spring.jpa.entity.GuestHouse;
 import com.spring.jpa.entity.User;
@@ -20,7 +21,7 @@ public interface GuestHouseRepository extends JpaRepository<GuestHouse, Long>{
 
 	// 3. 특정 게스트하우스 반환 (이름으로 탐색)
 	@Query("SELECT g FROM GuestHouse g WHERE g.name = :name")
-	Optional<GuestHouse> findByName(String name);
+	GuestHouse findByName(String name);
 	
 	// 4. 특정 지역의 게스트하우스 중, 하나를 임의로 선정하여 반환
 	@Query(value = "SELECT * FROM GuestHouse WHERE location = :location ORDER BY RAND() LIMIT 1", nativeQuery = true)
@@ -44,7 +45,7 @@ public interface GuestHouseRepository extends JpaRepository<GuestHouse, Long>{
 	 List<Object[]> findTop3UsersByGuestHouseName(String guestHouseName);
 	 
 	 // 7. 특정 게스트하우스 반환 (id로 검색)
-	 @Query("SELECT g FROM GuestHouse g WHERE g.guestHouseId = :id")
-	Optional<GuestHouse> findById(Long id);
+	@Query("SELECT g FROM GuestHouse g WHERE g.guestHouseId = :id")
+	GuestHouse findGuestHouseById(@Param("id")Long id);
 		
 }
