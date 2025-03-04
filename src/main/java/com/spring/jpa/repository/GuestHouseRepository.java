@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.spring.jpa.entity.GuestHouse;
 import com.spring.jpa.entity.User;
@@ -44,7 +45,7 @@ public interface GuestHouseRepository extends JpaRepository<GuestHouse, Long>{
 	 List<Object[]> findTop3UsersByGuestHouseName(String guestHouseName);
 	 
 	 // 7. 특정 게스트하우스 반환 (id로 검색)
-	 @Query("SELECT g FROM GuestHouse g WHERE g.guestHouseId = :id")
-	Optional<GuestHouse> findById(Long id);
+	@Query("SELECT g FROM GuestHouse g WHERE g.guestHouseId = :id")
+	GuestHouse findGuestHouseById(@Param("id")Long id);
 		
 }
