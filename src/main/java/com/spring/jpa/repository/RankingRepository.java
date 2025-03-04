@@ -32,7 +32,7 @@ public interface RankingRepository extends JpaRepository<Ranking, Long>{
 //    @Query("SELECT u, r.duration, RANK() OVER (ORDER BY r.duration ASC)" +
 //    		"FROM User u " +
 //            "JOIN Ranking r ON u.userId = r.user.userId " +
-//            "WHERE r.guesthouse.guestHouseId = :guestHouseId " +
+//            "WHERE r.guestHouse.guestHouseId = :guestHouseId " +
 //            "ORDER BY r.duration ASC " +
 //            "LIMIT 3")
 //     List<Object[]> findTop3UsersByGuestHouseId(Long guestHouseId);
