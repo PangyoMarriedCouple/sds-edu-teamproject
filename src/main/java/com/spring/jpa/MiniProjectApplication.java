@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.spring.jpa.entity.GuestHouse;
 import com.spring.jpa.entity.Ranking;
 import com.spring.jpa.entity.User;
+import com.spring.jpa.dto.UserLoginReq;
 import com.spring.jpa.dto.UserReq;
 import com.spring.jpa.entity.Coupon;
 import com.spring.jpa.repository.GuestHouseRepository;
@@ -239,6 +240,10 @@ public class MiniProjectApplication implements CommandLineRunner{
 	//	userService.addUser(userReq);
 //		userService.findUser("yujin");
 //		userService.findUser("sohee");
+		
+		//Login 테스트하기
+//		UserLoginReq userLoginReq = new UserLoginReq("yujin", "12345");
+//		userService.logInUser(userLoginReq);
 	}
 
 	public static void main(String[] args) {

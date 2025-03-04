@@ -2,6 +2,7 @@ package com.spring.jpa.service;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.jpa.dto.UserLoginReq;
 import com.spring.jpa.dto.UserReq;
 import com.spring.jpa.dto.UserRes;
 import com.spring.jpa.entity.User;
@@ -42,6 +43,16 @@ public class UserService {
 		return new UserRes(user);
 	}
 	
-	//3. 유저 update 해주기 
+	//3. 유저 Login
+	public UserRes logInUser(UserLoginReq userLoginReq) throws Exception{
+		User user = userRepository.findUserByName(userLoginReq.getName());
+		if(user == null)
+			throw new Exception("해당 이름의 사용자가 없습니다");
+		if(!user.getPassWord().equals(userLoginReq.getPassWord()))
+			throw new Exception("비밀번호가 일치하지 않습니다");
+		System.out.println(user.toString() + "로그인 성공");
+		return new UserRes(user);
+	}
+	
 	
 }
