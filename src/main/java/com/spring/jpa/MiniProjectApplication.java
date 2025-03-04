@@ -16,6 +16,7 @@ import com.spring.jpa.entity.Coupon;
 import com.spring.jpa.repository.GuestHouseRepository;
 import com.spring.jpa.repository.RankingRepository;
 import com.spring.jpa.repository.UserRepository;
+import com.spring.jpa.service.CouponService;
 import com.spring.jpa.repository.CouponRepository;
 
 import jakarta.transaction.Transactional;
@@ -35,9 +36,15 @@ public class MiniProjectApplication implements CommandLineRunner{
 	@Autowired
 	private CouponRepository couponRepository;
 	
+	private CouponService couponService;
+	
 	@Transactional
 	@Override
 	public void run(String... args) throws Exception {
+		
+
+		// ==== 쿠폰 테스팅 코드 끝 ===== 
+		System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
 		
 	}
 

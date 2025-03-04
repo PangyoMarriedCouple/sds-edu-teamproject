@@ -9,10 +9,13 @@ import com.spring.jpa.dto.CouponRes;
 import com.spring.jpa.entity.Coupon;
 import com.spring.jpa.repository.CouponRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CouponService {
 	
-	private CouponRepository couponRepository;
+	final CouponRepository couponRepository;
 
     // UserId를 인자로 받아서, 그 유저가 가지고 있는 모든 쿠폰 목록을 List<CouponRes>로 반환 
     public List<CouponRes> getCouponsByUserId(Long userId) {
