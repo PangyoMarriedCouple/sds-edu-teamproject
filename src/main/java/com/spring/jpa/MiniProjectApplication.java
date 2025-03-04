@@ -170,6 +170,13 @@ public class MiniProjectApplication implements CommandLineRunner{
 //			}
 //			System.out.println("\n");
 //		}
+
+		// RankingRepository 기능 4번 단위 테스트
+		// List<Ranking> rTop3Ranking = rankingRepository.findTop3UsersByGuestHouseId(5L);
+		// for (Ranking col : rTop3Ranking) {
+		// 	System.out.println(col + " ");
+		// }
+		// System.out.println("\n");
 		
 		
 		// ==== 쿠폰 테스팅 코드 시작 ===== 
