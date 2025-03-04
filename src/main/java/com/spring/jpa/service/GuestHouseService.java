@@ -20,34 +20,35 @@ public class GuestHouseService {
 	final GuestHouseRepository guestHouseRepository;
 	
 	@Transactional
-	public GuestHouseRes findGuestHouseByName(String name) throws GuestHouseSearchException{
-		GuestHouse gh = guestHouseRepository.findByName(name)
-						.orElseThrow(()-> new GuestHouseSearchException("No Such Guest House"));
-		
+	public GuestHouseRes findGuestHouseByName(String name){ // 게하 이름으로 게하 정보 리턴
+		GuestHouse gh = guestHouseRepository.findByName(name);
 		return new GuestHouseRes(gh);
 	}
 	
 	@Transactional
-	public String getRandomGuestHouse() {
-		// GuestHouse 목록이 비어있다는 exception은 없음.
+	public GuestHouseRes findGuestHouseById(Long id) {
+		GuestHouse gh = guestHouseRepository.findGuestHouseById(id);
+		return new GuestHouseRes(gh);
+	}
+	
+	@Transactional
+	public String getRandomGuestHouse() { // 랜덤으로 선택된 게하의 이름을 리턴
 		GuestHouse randomGuestHouse = guestHouseRepository.findRandomGuestHouse();
-		
 		String randomGuestHouseName = randomGuestHouse.getName();
-		
 		return randomGuestHouseName;
 	}
 	
-	// 하나의 게스트 하우스를 임의로 선택하여 해당 게스트 하우스 이름으로 애너그램 30개 생성 
-	public List<String> generateAnagrams(){
+	
+	public List<String> generateAnagrams(String name){ // 하나의 게스트 하우스를 임의로 선택하여 해당 게스트 하우스 이름으로 애너그램 30개 생성 
 		
-		String randomGuestHouseName = getRandomGuestHouse();
-		List<String> anagrams = getShuffledNamesExceptionFirstAndLastChar(30, randomGuestHouseName);
+		//String randomGuestHouseName = getRandomGuestHouse();
+		List<String> anagrams = getShuffledNamesExceptionFirstAndLastChar(30, name);
 		
 		return anagrams;
 	}
 	
-	// 주어진 이름으로 애너그램 n번 생성
-	public List<String> getShuffledNames(Integer times, String originalName){
+	
+	public List<String> getShuffledNames(Integer times, String originalName){ // 주어진 이름으로 애너그램 n번 생성
 		
 		List<String> shuffledNames = new ArrayList<>(); 
 		
@@ -113,7 +114,8 @@ public class GuestHouseService {
 	    return shuffledNames;
 	}
 	
-	public boolean checkAnswer(String answer, String originalName) {
+	
+	public boolean checkAnswer(String answer, String originalName) { //정답 확인
         return answer.equals(originalName);
     }
 }
