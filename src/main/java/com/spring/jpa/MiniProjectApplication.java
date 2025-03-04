@@ -19,10 +19,14 @@ import com.spring.jpa.repository.GuestHouseRepository;
 import com.spring.jpa.repository.RankingRepository;
 import com.spring.jpa.repository.UserRepository;
 <<<<<<< HEAD
+import com.spring.jpa.service.CouponService;
+=======
+<<<<<<< HEAD
 import com.spring.jpa.service.UserService;
 =======
 import com.spring.jpa.service.CouponService;
 >>>>>>> 19946745be27b1bcde2be0d5237d1dd023edc32c
+>>>>>>> 6d02233e73005cfeb6817c7012d2c7617c0e6624
 import com.spring.jpa.repository.CouponRepository;
 
 import jakarta.transaction.Transactional;
@@ -43,11 +47,15 @@ public class MiniProjectApplication implements CommandLineRunner{
 	private CouponRepository couponRepository;
 	
 <<<<<<< HEAD
+	private CouponService couponService;
+=======
+<<<<<<< HEAD
 	@Autowired
 	private UserService userService;
 =======
 	private CouponService couponService;
 >>>>>>> 19946745be27b1bcde2be0d5237d1dd023edc32c
+>>>>>>> 6d02233e73005cfeb6817c7012d2c7617c0e6624
 	
 	@Transactional
 	@Override
@@ -66,6 +74,13 @@ public class MiniProjectApplication implements CommandLineRunner{
 //			}
 //			System.out.println("\n");
 //		}
+
+		// RankingRepository 기능 4번 단위 테스트
+		// List<Ranking> rTop3Ranking = rankingRepository.findTop3UsersByGuestHouseId(5L);
+		// for (Ranking col : rTop3Ranking) {
+		// 	System.out.println(col + " ");
+		// }
+		// System.out.println("\n");
 		
 		
 		// ==== 쿠폰 테스팅 코드 시작 ===== 
@@ -119,9 +134,12 @@ public class MiniProjectApplication implements CommandLineRunner{
 //	    System.out.println("Updated TestUser's numCoupon: " + testUser.getNumCoupon());
 //		
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 		// ==== 쿠폰 테스팅 코드 끝 ===== 
 	//	System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
 =======
+>>>>>>> 6d02233e73005cfeb6817c7012d2c7617c0e6624
 		// ==== 쿠폰 테스팅 코드 끝 =====
 		
 		// 쿠폰 서비스 테스팅
@@ -138,11 +156,14 @@ public class MiniProjectApplication implements CommandLineRunner{
 	    Long result2 = couponRepository.countByUserUserId(u1.getUserId());
 	    System.out.println("TestUser에게 쿠폰은" + result2 + "개");
 		
+<<<<<<< HEAD
+=======
 >>>>>>> 19946745be27b1bcde2be0d5237d1dd023edc32c
 =======
 		// ==== 쿠폰 테스팅 코드 끝 ===== 
 		System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
 >>>>>>> a2bb16c7c00b4348b7292dd23cad49e1b74e0836
+>>>>>>> 6d02233e73005cfeb6817c7012d2c7617c0e6624
 		
 		//UserService 테스트하기.
 		

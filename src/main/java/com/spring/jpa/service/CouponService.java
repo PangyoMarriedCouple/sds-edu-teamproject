@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.jpa.dto.CouponRes;
 import com.spring.jpa.entity.Coupon;
+import com.spring.jpa.repository.BoardRepository;
 import com.spring.jpa.repository.CouponRepository;
 
 import lombok.RequiredArgsConstructor;
