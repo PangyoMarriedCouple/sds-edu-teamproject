@@ -20,7 +20,7 @@ public interface GuestHouseRepository extends JpaRepository<GuestHouse, Long>{
 
 	// 3. 특정 게스트하우스 반환 (이름으로 탐색)
 	@Query("SELECT g FROM GuestHouse g WHERE g.name = :name")
-	Optional<GuestHouse> findByName(String name);
+	GuestHouse findByName(String name);
 	
 	// 4. 특정 지역의 게스트하우스 중, 하나를 임의로 선정하여 반환
 	@Query(value = "SELECT * FROM GuestHouse WHERE location = :location ORDER BY RAND() LIMIT 1", nativeQuery = true)
