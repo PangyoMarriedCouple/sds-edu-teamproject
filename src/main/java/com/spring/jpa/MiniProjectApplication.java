@@ -12,10 +12,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.spring.jpa.entity.GuestHouse;
 import com.spring.jpa.entity.Ranking;
 import com.spring.jpa.entity.User;
+import com.spring.jpa.dto.UserReq;
 import com.spring.jpa.entity.Coupon;
 import com.spring.jpa.repository.GuestHouseRepository;
 import com.spring.jpa.repository.RankingRepository;
 import com.spring.jpa.repository.UserRepository;
+import com.spring.jpa.service.UserService;
 import com.spring.jpa.repository.CouponRepository;
 
 import jakarta.transaction.Transactional;
@@ -34,6 +36,9 @@ public class MiniProjectApplication implements CommandLineRunner{
 	
 	@Autowired
 	private CouponRepository couponRepository;
+	
+	@Autowired
+	private UserService userService;
 	
 	@Transactional
 	@Override
@@ -223,8 +228,17 @@ public class MiniProjectApplication implements CommandLineRunner{
 //	    System.out.println("Updated TestUser's numCoupon: " + testUser.getNumCoupon());
 //		
 		// ==== 쿠폰 테스팅 코드 끝 ===== 
-		System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
+	//	System.out.println("findUserBy Name test" + userRepository.findUserByName("AAA") );
 		
+		//UserService 테스트하기.
+		
+		//addUser 테스트하기.
+		
+		//userReq만들기 
+	//	UserReq userReq = new UserReq("Siwon", "010-xxx-xxx", "F", "");
+	//	userService.addUser(userReq);
+//		userService.findUser("yujin");
+//		userService.findUser("sohee");
 	}
 
 	public static void main(String[] args) {

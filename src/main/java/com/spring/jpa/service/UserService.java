@@ -33,9 +33,12 @@ public class UserService {
 	}
 	
 	//2. 이름으로 유저 찾기 (findUser)
-	public UserRes findUser(String name){
+	public UserRes findUser(String name) throws Exception{
 		User user = userRepository.findUserByName(name);
-		//Exception 처리 우찌 해주지 ㅠㅠ
+		
+		if(user==null)
+			throw new Exception("해당 이름의 사용자가 없습니다");
+		System.out.println(user.toString());
 		return new UserRes(user);
 	}
 	
