@@ -29,8 +29,6 @@ public interface RankingRepository extends JpaRepository<Ranking, Long>{
      #Parameter --> Long guestHouseId
      #Output --> List<Ranking>
     */ 
-<<<<<<< HEAD
-<<<<<<< HEAD
     /*
     @Query( "SELECT r.* FROM (" +
                 "SELECT r.*, RANK() OVER (ORDER BY r.duration ASC) AS rankingOrder" +
@@ -50,9 +48,7 @@ public interface RankingRepository extends JpaRepository<Ranking, Long>{
                 WHERE r.rankingOrder <= 3
                 """, nativeQuery = true)
      List<Ranking> findTop3UsersByGuestHouseId(Long guestHouseId);
-=======
-=======
->>>>>>> 6d02233e73005cfeb6817c7012d2c7617c0e6624
+
 //    @Query("SELECT u, r.duration, RANK() OVER (ORDER BY r.duration ASC)" +
 //    		"FROM User u " +
 //            "JOIN Ranking r ON u.userId = r.user.userId " +
@@ -60,9 +56,6 @@ public interface RankingRepository extends JpaRepository<Ranking, Long>{
 //            "ORDER BY r.duration ASC " +
 //            "LIMIT 3")
 //     List<Object[]> findTop3UsersByGuestHouseId(Long guestHouseId);
-<<<<<<< HEAD
->>>>>>> 19946745be27b1bcde2be0d5237d1dd023edc32c
-=======
->>>>>>> 6d02233e73005cfeb6817c7012d2c7617c0e6624
+
     
 }
