@@ -41,10 +41,10 @@ public class RankingService {
 //	}
 	
 	// findTop3UsersByGuestHouseId
-	public List<Object[]> findTop3UsersByGuestHouseId(Long guestHouseId) throws Exception{
-		List<Object[]> list = rankingRepository.findTop3UsersByGuestHouseId(guestHouseId);
-		return list;
-	}
+//	public List<Object[]> findTop3UsersByGuestHouseId(Long guestHouseId) throws Exception{
+//		List<Object[]> list = rankingRepository.findTop3UsersByGuestHouseId(guestHouseId);
+//		return list;
+//	}
 	
 	//deleteAllRankings()
 	@Transactional
